@@ -144,7 +144,12 @@ void TakeTurn(string Board[][3],int Turn)
         {
             cout<<"Enter Again invalid Rows And Columns"<<endl;
         }
-    }while(r>3||c>3||Board[r][c] != "-");
+        if(r>3 || c>3)
+        x=true;
+        else if(Board[r][c] != "-")
+        x=true;
+        else x=false;
+    }while(x);
 
 
 }
@@ -188,6 +193,12 @@ void PlayGame(string Board[][3])
 }
 int main()
 {
-        string Board[3][3];
+
+    string Board[3][3];
+    int Status;
+    do{
             PlayGame(Board);
+        cout<<"if you want to play again Enter 1 any other integer for exit"<<endl;
+        cin>>Status;
+    }while(Status==1);
 }
